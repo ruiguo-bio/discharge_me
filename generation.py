@@ -16,8 +16,8 @@ from langchain_core.output_parsers import StrOutputParser
 
 llm = Ollama(model="llama3:8b-instruct-q8_0",timeout=180,verbose=True,num_predict=4000,num_ctx=8000,cache=False,)
 
-df_discharge_train_segmented = pd.read_csv('/mnt/datadisk/mimic/discharge/train/df_discharge_train_segmented_0503.csv')
-df_discharge_test_phase_2_segmented = pd.read_csv('/mnt/datadisk/mimic/discharge/test_phase_2/df_discharge_test_phase_2_segmented_0503.csv')
+df_discharge_train_segmented = pd.read_csv('/mnt/datadisk/mimic/discharge/dataset/df_discharge_train_segmented.csv')
+df_discharge_test_phase_2_segmented = pd.read_csv('/mnt/datadisk/mimic/discharge/dataset/df_discharge_test_phase_2_segmented.csv')
 # fill na with ''
 df_discharge_train_segmented.fillna('', inplace=True)
 df_discharge_test_phase_2_segmented.fillna('', inplace=True)
