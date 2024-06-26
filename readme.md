@@ -1,4 +1,4 @@
-# Repository for the Challenge Discharge Me!
+# QUB-Cirdan at ``Discharge Me!'': Zero shot discharge letter generation by open-source LLM
 
 More information about the challenge can be found on the [Discharge Me! Challenge FAQ page](https://stanford-aimi.github.io/discharge-me/#faq).
 
