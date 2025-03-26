@@ -2,33 +2,50 @@
 
 More information about the challenge can be found on the [Discharge Me! Challenge FAQ page](https://stanford-aimi.github.io/discharge-me/#faq).
 
+___
+
 ## Overview
-This repository hosts the solution to the "Discharge Me!" challenge, which focuses on generating sections of discharge summaries from the MIMIC-IV dataset. The main objective is automatically generating the "Brief Hospital Course" and "Discharge Instructions" sections.
+This repository hosts the solution to the "Discharge Me!" challenge, which focuses on generating sections of discharge summaries from the MIMIC-IV dataset. 
+The corresponding paper is available on [ACL](https://aclanthology.org/2024.bionlp-1.58/).
+The main objective is automatically generating the "Brief Hospital Course" and "Discharge Instructions" sections.
 
 ## Scripts
-
+The paper section "Dataset Exploration" is implemented in the following two scripts:
 ### `aggregate_discharge.py`
-This script augments the discharge summary table by integrating other relevant tables from the MIMIC-IV dataset, providing a fuller context and background for each patient’s stay.
+This script augments the discharge summary table by integrating other relevant tables from the MIMIC-IV dataset, providing a fuller context and background for each patient’s stay. 
 
 #### Features:
 - Reads additional tables to augment the data.
 - Integrates multiple data sources to enhance the discharge summary.
 
+
+
 ### `discharge_dataset.py`
 Processes the discharge summaries by segmenting them into specific sections, truncating excessive content, and aggregating the results into a structured table.
+
 
 #### Features:
 - Segments discharge summaries into manageable parts.
 - Truncates sections that are overly verbose.
 - Aggregates sections to form a structured output table.
 
+___
+
+
+The paper section "Retrieval for the Target Section Word
+Count", "Target Section Structure Template and
+Prompt Creation" are implemented in the following script:
+
 ### `generation.py`
-Generates missing sections in the discharge summaries based on RAG and LLama3 (using Ollama to serve the llama3 model). Two prompt templates are curated for this purpose, and RAG retrieves a target section's word count as the target output's word count.
+Generates missing sections in the discharge summaries based on RAG and LLama3 (using Ollama to serve the llama3 model). 
+Two prompt templates are curated for this purpose, and RAG retrieves a target section's word count as the target output's word count.
 
 #### Parameters:
 - `start_index`: The index of the first input to consider for a generation.
 - `end_index`: The total number of inputs to process for generation.
 - `section_type`: Type of section to generate (`1` for a brief hospital course, `0` for discharge instructions).
+
+___
 
 ## Usage
 Ensure Python is installed along with the necessary dependencies, including:
